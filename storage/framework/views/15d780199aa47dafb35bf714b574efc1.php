@@ -1,0 +1,1 @@
+<a href="<?php echo e(route("rest.password" , $token)); ?>">Reset password</a><?php /**PATH C:\xampp\htdocs\FirstLaravel\custom_login\resources\views/emails/forget-password.blade.php ENDPATH**/ ?>
