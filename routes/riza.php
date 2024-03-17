@@ -24,18 +24,37 @@ Route::get('/hello', function(){
     return 'hEllo PO!';
 });
 
-// Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
 
-// Route::match(['put', 'patch', 'post'], '/updateUserInfo' , function(){
-//     return 'Hello World';
-// });
+Route::match(['put', 'patch', 'post'], '/updateUserInfo' , function(){
+    return 'Hello World';
+});
 
 
-// Route::any('updateUserInfo', function(){
-//       return 'This route accepts any http verb';
-// });
+Route::any('updateUserInfo', function(){
+      return 'This route accepts any http verb';
+});
+
+Route::post('/heeelllo', function(){
+    return 'hEllo PO!';
+});
 
 Route::get('/user', function(Request $request){
-     return $request->name . ' - '. $request->email;
-     
+     return $request->name . ' - '. $request->email; 
+});
+
+Route::patch('/goodmorning', function(){
+      return 'Good Morning po';
+});
+
+Route::put('/goodmorning2', function(){
+    return 'Good Morning po';
+});
+
+Route::options('/goodmorning3', function(){
+    return 'Good Morning po';
+});
+
+Route::delete('/goodmorning4', function(){
+    return 'Good Morning po';
 });
