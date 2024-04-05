@@ -58,3 +58,14 @@ Route::options('/goodmorning3', function(){
 Route::delete('/goodmorning4', function(){
     return 'Good Morning po';
 });
+
+
+
+
+Route::middleware('extract.token')->group(function(){
+    Route::get('/users', [UserController::class, 'Index']);
+    Route::patch('/users/{user}', [UserController::class, 'update']);
+    Route::post('/userPost', [PostController::class, 'store']);
+    Route::put('/userUpdate/{post}', [PostController::class, 'update']);
+    Route::delete('/userDeleter/{post}', [PostController::class, 'destroy']);
+});
