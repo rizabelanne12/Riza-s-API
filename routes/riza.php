@@ -20,12 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware('extract.token')->group(function(){
-    Route::get('/users', [UserController::class, 'Index']);
-    Route::patch('/users/{user}', [UserController::class, 'update']);
-    Route::post('/userPost', [PostController::class, 'store']);
-    Route::put('/userUpdate/{post}', [PostController::class, 'update']);
-    Route::delete('/userDeleter/{post}', [PostController::class, 'destroy']);
-});
-
+Route::apiResource('products', ProductController::class);
 
