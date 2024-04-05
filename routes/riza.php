@@ -20,48 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/hello', function(){
-    return 'hEllo PO!';
-});
-
-Route::get('/user', [UserController::class, 'index']);
-
-Route::match(['put', 'patch', 'post'], '/updateUserInfo' , function(){
-    return 'Hello World';
-});
-
-
-Route::any('updateUserInfo', function(){
-      return 'This route accepts any http verb';
-});
-
-Route::post('/heeelllo', function(){
-    return 'hEllo PO!';
-});
-
-Route::get('/user', function(Request $request){
-     return $request->name . ' - '. $request->email; 
-});
-
-Route::patch('/goodmorning', function(){
-      return 'Good Morning po';
-});
-
-Route::put('/goodmorning2', function(){
-    return 'Good Morning po';
-});
-
-Route::options('/goodmorning3', function(){
-    return 'Good Morning po';
-});
-
-Route::delete('/goodmorning4', function(){
-    return 'Good Morning po';
-});
-
-
-
-
 Route::middleware('extract.token')->group(function(){
     Route::get('/users', [UserController::class, 'Index']);
     Route::patch('/users/{user}', [UserController::class, 'update']);
@@ -69,3 +27,5 @@ Route::middleware('extract.token')->group(function(){
     Route::put('/userUpdate/{post}', [PostController::class, 'update']);
     Route::delete('/userDeleter/{post}', [PostController::class, 'destroy']);
 });
+
+
