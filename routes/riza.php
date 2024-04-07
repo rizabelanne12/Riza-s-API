@@ -20,12 +20,81 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware('extract.token')->group(function(){
-    Route::get('/users', [UserController::class, 'Index']);
-    Route::patch('/users/{user}', [UserController::class, 'update']);
-    Route::post('/userPost', [PostController::class, 'store']);
-    Route::put('/userUpdate/{post}', [PostController::class, 'update']);
-    Route::delete('/userDeleter/{post}', [PostController::class, 'destroy']);
+
+Route::get('/hello', function(){
+    return 'hEllo PO!';
 });
+
+Route::get('/user', [UserController::class, 'index']);
+
+Route::match(['put', 'patch', 'post'], '/updateUserInfo' , function(){
+    return 'Hello World';
+});
+
+
+Route::any('updateUserInfo', function(){
+      return 'This route accepts any http verb';
+});
+
+Route::post('/heeelllo', function(){
+    return 'hEllo PO!';
+});
+
+Route::get('/user', function(Request $request){
+     return $request->name . ' - '. $request->email; 
+});
+
+Route::patch('/goodmorning', function(){
+      return 'Good Morning po';
+});
+
+Route::put('/goodmorning2/{id}', function(){
+    return 'Good Morning po';
+});
+
+Route::options('/goodmorning3', function(){
+    return 'Good Morning po';
+});
+
+Route::delete('/goodmorning4', function(){
+    return 'Good Morning po';
+});
+
+Route::get('/user/{id}', function(string $id){
+     return 'User' .$id;
+});
+
+Route::get('/post/{post}/comments/{comment}',
+ function(string $postid, string $comment){
+    
+});
+
+Route::get('/users/{id}', function(Request $request, string $id){
+    return $request->name . ' - '. $request->email; 
+});
+
+Route::get('/userss/{name?}', function(?string $name = null){
+    return $name;
+});
+
+Route::get('/userss2/{name?}', function(?string $name = 'Riza'){
+    return $name;
+});
+
+Route::get('/user/{name}', function(string $name){
+    return $name;
+})->where('name', '[A-Za-z]+');
+
+Route::get('/userId/{id}', function(string $id){
+    return $id;
+})->where('id', '[0-9]+');
+
+Route::get('/userId/{id}', function(string $id){
+        return $id;
+});
+
+Route::get('/user/profile', function () {
+    
+})->name('profile');
 
 
